@@ -78,6 +78,17 @@
 	            alert("Please enter a valid task.");
 	        }
 	}
+	
+	// Function to edit an existing task
+	function editTask(span) {
+	    // Prompt the user to enter a new task description
+	    const newTask = prompt("Edit your task:", span.textContent);
+	    
+	    // Update the task only if the input is not null or empty
+	    if (newTask !== null && newTask.trim() !== "") {
+	        span.textContent = newTask.trim(); // Set the new task text
+	    }
+	}
 </script>
 </body>
 </html>
