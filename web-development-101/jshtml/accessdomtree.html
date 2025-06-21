@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>How to access dom tree</title>
+</head>
+<body>
+<div class="user common"> Users: </div>
+
+<ul class="box common">
+    <li id="john"> John </li>
+    <li id="peter"> Peter </li>
+</ul>
+</body>
+<script>
+    var oUser = document.getElementById('john');
+    console.log("The user is: " + oUser);
+
+    var oCommon = document.getElementsByClassName('box common');
+    console.log(oCommon);
+
+    var oUl = document.getElementsByClassName('box common');
+    var oLis = document.getElementsByTagName('li');
+    var john = oUl[0].getElementsByTagName('li')[0];
+    console.log(oUl);
+    console.log(oLis);
+    console.log(john);
+
+    //query selector
+    var oUser2 = document.querySelector('#user');
+    console.log(oUser);
+
+    var oLis = document.querySelectorAll('li');
+    console.log(oLis);
+
+    var oCommons = document.querySelectorAll('.common');
+    console.log(oCommons);
+</script>
+</html>

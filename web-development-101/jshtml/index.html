@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ES6</title>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        let b = 1;
+        //can not be reassigned
+        // let b = 2;
+        console.log(b);
+        //must assign a value
+        //const d;
+        function test() {
+            var a = 1;
+            var a = 2;
+
+            let b = 10;
+            //let b = 20;
+            console.log(a, b);
+        }
+
+        test();
+
+        for (let i = 0; i < 2; i++) {
+            console.log(i);
+        }
+        //i is not defined
+        // console.log(i);
+
+        const t = 123;
+        //t is read only can't be changed after assigned
+        //t = 456;
+        console.log(t);
+
+        //block scopr
+        function blockscope() {
+            const a = 123;
+            console.log(a);
+        }
+        //a is not defined
+        // console.log(a);
+
+        //destructuring assignment
+        var [a, c, d] = [1, 2, 3];
+        console.log(a, c, d);
+
+        //Object
+        var { name, age } = { name: 'Joe', age: 10 }
+        console.log(name, age);
+
+        //Function
+        function fn([a, b]) {
+            console.log(a + b);
+        }
+        fn([1, 2]);
+
+        //default: absent values are considered undefined
+        //rest: to gather all that  follows using three dots "..."
+        //spread: to spread all items in an array or an object using three dots "..."
+        //default
+        function add1(x = 1, y = 2) {
+            console.log(x + y);
+        }
+        add1();
+        //reassigned x, y
+        add1(5, 6);
+
+        //rest
+        function restfn(...args) {
+            let sum = 0;
+            for (let i = 0; i < args.length; i++) {
+                sum += args[i];
+            }
+            console.log(sum);
+        }
+        restfn(1, 2, 3, 4);
+
+        //spread
+        let arr = [1, 2, 3];
+        let arr1 = [...arr, 4, 5];
+        console.log(arr1);
+
+        let obj1 = { a: 1, b: 2 };
+        let obj2 = { ...obj1, c: 3 };
+
+        console.log(obj2);
+
+        //normal function 
+        var normalf = function (a, b) {
+            a++;
+            return a + b;
+        }
+        console.log("Normal function: " + normalf(20, 10));
+
+        //arrow function
+        var arrowf = (a, b) => {
+            a++;
+            return a + b;
+        }
+        console.log("Arrow function: " + arrowf(1, 2));
+
+        //case 1: without curly braces when the function evaluates it and returns the result
+        var f = (a, b) => a + b;
+
+        //case 2: only one argument then parentheses around parameters can be omitted
+        var f = a => {
+            a++;
+            console.log(a);
+        }
+
+        //case1 + case2
+        var f = a => a;
+
+        var array = [3, 5, 1, 2, 8];
+        console.log(array);
+        var arr2 = array.map(a => a * 2);
+        console.log(arr2);
+
+        var arr3 = array.map(function (b) {
+            return b * 3;
+        })
+        console.log(arr3);
+
+        //this keyword
+        function thisfn() {
+            console.log('thisfn', this);
+            const run = () => {
+                console.log(this);
+                console.log(this.a);
+            }
+            run();
+        }
+
+        var item1 = {
+            a: 1,
+            thisfn: thisfn
+        }
+
+        var item2 = {
+            a: 100,
+            thisfn: thisfn
+        }
+
+        //this refers to the object reference that's calling it
+        item1.thisfn();
+        item2.thisfn();
+
+        //the basic syntax for class
+        class Person {
+            constructor(name, age, hobby) {
+                this.name = name;
+                this.age = age;
+                this.hobby = hobby;
+            }
+
+            sayHello() {
+                console.log(`My name is ${this.name}, I am ${this.age} years old, I like ${this.hobby}`);
+            }
+
+            walk() {
+                console.log(`${this.name} is walking`);
+            }
+
+        }
+
+        var joe = new Person('Joe', 20, 'swimming');
+        joe.sayHello();
+        joe.walk();
+
+        class Student extends Person {
+            constructor(name, age, hobby, school) {
+                super(name, age, hobby);
+                this.school = school
+            }
+
+            goToSchool() {
+                console.log(`this is ${this.name}, I go to ${this.school}`);
+            }
+        }
+        var curry = new Student('Curry', 9, 'basketball', 'elementary school');
+        curry.sayHello();
+        curry.goToSchool();
+
+        //Template String: used for constructing strings
+        function ex1(){
+            const firstName = 'John';
+            const lastName = 'Doe';
+            const fullName = `${firstName}${lastName}`;
+            console.log(fullName);
+        }
+        ex1();
+    </script>
+</body>
+</html>

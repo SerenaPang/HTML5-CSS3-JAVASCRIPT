@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Relative Position</title>
+    <style>
+        body,
+        div {
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            border: 1px solid blue;
+        }
+
+        .rl {
+            width: 200px;
+            height: 200px;
+            /* 1. relative position: After setting the relative position,
+    container css can set left, right, top and bottom*/
+            position: relative;
+            /*relative to the original position*/
+            left: 10px;
+            top: 20px;
+        }
+
+        /* 2. Absolute Position
+        .ab {
+            width: 200px;
+            height: 100px;
+            background-color: lightcoral;
+           
+            position: absolute;
+            top: 30px;
+            left: 100px;
+            
+        }
+*/
+        /*3. setting the parent container position */
+        .parent {
+            width: 400px;
+            height: 500px;
+            background-color: lightblue;
+
+            /*4. add position*/
+            position: relative;
+        }
+
+        /*5. fix position*/
+        .f {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100px;
+            width: 100px;
+            background-color: lavender;
+        }
+    </style>
+</head>
+
+<body>
+    <!--1. relative position-->>
+    <div class="rl">
+        this is a div - relative position
+    </div>
+
+    <!--2. absolute position-->>
+    <div class="ab">
+        this is a div - absolute position
+    </div>
+
+    <!--3. setting parent container (comment absolute position)-->>
+    <div class="parent">
+        this is a div - absolute position
+    </div>
+
+    <!--5. fix position-->>
+    <div class="f">
+        this is a div - fix position
+    </div>
+
+</body>
+
+</html>

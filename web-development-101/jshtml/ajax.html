@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax </title>
+
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        //ajax helper
+        function ajax(method, url, data, successCallback, errorCallback) {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open(method, url, true);
+            //the response is received
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    successCallback(xhr.responseText);
+                } else {
+                    errorCallback;
+                }
+            };
+        }
+
+        xhr.onerror = function () {
+            console.error("The request couldn't be completed.");
+            errorCallback();
+        };
+
+        if (data === null) {
+            xhr.send();
+        } else {
+            //set request  header if needed
+            xhr.setRequestHeader("Content-Type", "application/json;charset=utf-8");
+            xhr.send(data);
+        }
+
+        ajax('GET', 'http://petstore.swagger.io/v2/swagger.json', null, function(data) {
+            console.log(JSON.parse(data))
+        }, function () {
+            console.log('error')
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>Welcome to JavaScript</title>
+    <script type="text/javascript" src="js-101.js"></script>
+    <script type="text/javascript" src="js-lib.js"></script>
+</head>
+
+<body>
+
+    <h1>Welcome to JavaScript</h1>
+
+    <input type="button" onclick="sayHi()" value="Greeting" />
+
+    <h2 onmouseover="printDescription()">Mouse over me, please</h2>
+
+
+    <script>
+        function printWelcome() {
+            console.info("Welcome to my website");
+            console.info("Msg " + msg);
+        }
+
+        function printAge() {
+            let age = document.getElementById("age");
+            console.log("The age is " + age.value);
+        }
+
+        function doubleAge() {
+            let age = document.getElementById("age");
+            age.value = age.value * 2;
+        }
+
+    </script>
+
+
+    <input type="text" id="age" name="age" />
+    <input type="button" onclick="printAge()" value="Print Age" />
+    <input type="button" onclick="doubleAge()" value="Double Age" />
+
+
+    <input type="button" onclick="printWelcome()" value="Welcome" />
+
+
+</body>
+
+</html>

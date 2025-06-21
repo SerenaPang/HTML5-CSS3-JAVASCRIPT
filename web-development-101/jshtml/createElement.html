@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Element</title>
+</head>
+
+<body>
+    <ol id="ol">
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+    </ol>
+
+    <script>
+        var ol = document.getElementById('ol');
+        var newLi1 = document.createElement('li');
+        newLi1.innerHTML = 'append';
+        ol.append(newLi1);
+
+        var newLi12 = document.createElement('li');
+        newLi12.innerHTML = 'prepend'
+        ol.prepend(newLi12);
+
+        ol.before('before');
+        ol.after('after');
+    </script>
+</body>
+</html>

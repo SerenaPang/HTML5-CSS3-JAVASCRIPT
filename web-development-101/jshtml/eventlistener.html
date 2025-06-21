@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Element</title>
+    <style>
+        div {
+            background-color: lightblue;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        //method 1: add event handler on html
+        //<h2 onclick="alert('hello')">Hello Event</h2>
+
+        //method 2: elem.onclick
+        // var oDiv = document.getElementsByTagName('div')[0];
+        // oDiv.onclick = function(){
+        //     oDiv.style.backgroundColor = 'red';
+        // }
+
+        //method 3: add event listener
+        var oDiv = document.getElementsByTagName('div')[0];
+        oDiv.addEventListener('click', function () {
+            console.log(1);
+        }, false);
+
+    </script>
+</body>
+
+</html>

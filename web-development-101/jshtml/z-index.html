@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Z index</title>
+    <style>
+        .ab {
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            border: 1px solid lightblue;
+        }
+
+        .d1 {
+            /* middle */
+            z-index: 100;
+            left: 100px;
+            top: 100px;
+            background-color: lightblue;
+        }
+
+        .d2 {
+            /* top */
+            z-index: 200;
+            background-color: lightpink;
+        }
+
+        .d3 {
+            /*bottom*/
+            z-index: 4;
+            left: 20px;
+            top: -30px;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<div class="ab d1"> middle </div>
+<div class="ab d2"> top </div>
+<div class="ab d3"> bottom </div>
+<body>
+
+
+</body>
+
+</html>

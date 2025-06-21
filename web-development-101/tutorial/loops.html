@@ -1,0 +1,93 @@
+<html>
+
+<head>
+  <title>Welcome to JavaScript</title>
+</head>
+
+<body>
+
+  <h1>Loops</h1>
+  <script>
+
+    function printDoWhile() {
+      var i = 0;
+      do {
+        i += 1;
+        console.log(i);
+      } while (i < 5);
+    }
+
+    function endLabel() {
+      var x = 0;
+      var z = 0;
+      labelCancelLoops: while (true) {
+        console.log("外部循环：" + x);
+        x += 1;
+        z = 1;
+        while (true) {
+          console.log("内部循环：" + z);
+          z += 1;
+          if (z === 10 && x === 10) {
+            break labelCancelLoops;
+          } else if (z === 10) {
+            break;
+          }
+        }
+      }
+    }
+
+    function continueExample() {
+      var i = 0;
+      var n = 0;
+      while (i < 5) {
+        i++;
+        if (i == 3) {
+          continue;
+        }
+        n += i;
+        console.log(n);
+      }
+    }
+
+    function continueLoop() {
+      var i = 0;
+      var j = 10;
+      checkiandj: while (i < 4) {
+        console.log(i);
+        i += 1;
+        checkj: while (j > 4) {
+          console.log(j);
+          j -= 1;
+          if (j % 2 == 0) {
+            continue checkj;
+          }
+          console.log(j + " 是奇数。");
+        }
+        console.log("i = " + i);
+        console.log("j = " + j);
+      }
+    }
+
+    function printArray() {
+      let arr = [3, 5, 7];
+      arr.foo = "hello";
+
+      for (let i in arr) {
+        console.log(i); // 输出 "0", "1", "2", "foo"
+      }
+
+      for (let i of arr) {
+        console.log(i); // 输出 "3", "5", "7"
+      }
+    }
+
+  </script>
+  <input type="button" onclick="printDoWhile()" value="Print Do While" />
+  <input type="button" onclick="endLabel()" value="End Label" />
+  <input type="button" onclick="continueExample()" value="Continue Example" />
+  <input type="button" onclick="continueLoop()" value="Continue Loop" />
+  <input type="button" onclick="printArray()" value="Print Array" />
+
+</body>
+
+</html>

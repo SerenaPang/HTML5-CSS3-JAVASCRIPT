@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Make HTTP request and handling response </title>
+
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        //1. create a new xml http request object
+        var xhr = new XMLHttpRequest();
+        //2. configure it: get request for the url
+        xhr.open('GET', 'http://petstore.swagger.io/v2/swagger.json', true);
+        //3. send the request over the network
+        xhr.send();
+        //4. this will be called after the response is received
+        xhr.onload = function () {
+            //analyze HTTP status of the response
+            if (xhr.status != 200) {
+                console.log('error', xhr.status);
+            } else { //show the result
+                console.log(xhr.responseText);
+            }
+        };
+
+        //only triggers if the request couldn't be made at all
+        xhr.onerror = function () {
+            alert("Request failed");
+        }
+    </script>
+</body>
+
+</html>

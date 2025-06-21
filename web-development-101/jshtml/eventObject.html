@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>event object</title>
+    <style>
+        div {
+            background-color: lightblue;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+       
+        var oDiv = document.getElementsByTagName('div')[0];
+
+        oDiv.onclick = function(e){
+            console.log(e);
+            console.log(e.target);
+        }
+
+        oDiv.addEventListener('mouseover', function (e) {
+            console.log(e);
+            console.log(e.target);
+        }, false);
+
+    </script>
+</body>
+
+</html>
