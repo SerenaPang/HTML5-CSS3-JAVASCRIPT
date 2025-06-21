@@ -1,30 +1,25 @@
-package com.learninghtml.app;
+package controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+
+
 
 /**
  * This class does save user, update user, delete user, find all users in the
  * website.
  */
 @Controller
-public class App {
+public class MainController {
 
-	@RequestMapping("/home")
+
+	@RequestMapping("/tutorial")
 	public String home(Model page) {
 		page.addAttribute("username", "Kity");
 		page.addAttribute("color", "blue");
-		return "home.html";
+		return "tutorial.html";
 	}
 
-	@RequestMapping("/table")
-	public String table(Model page) {
-	
-		return "table.html";
-	}
-	
 }
