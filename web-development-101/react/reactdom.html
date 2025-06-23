@@ -28,10 +28,40 @@
         var nums = [1,2,3,4,5];
         const double1 = nums.map(n => n * 2);
         console.log(double1);
-      
+
+        //JS expression
+        const a = 10;
+        const str = 'this is a str';
+        const strarray = [<p key='1'>first</p>, <p key='2'>second</p>, <p key='3'>third</p>];
+        console.log(str);
+        console.log(strarray);
+
+        //map
+        const fruits = ['apple', 'pear','berry'];
+        const res = fruits.map((item, index) => {
+            return<p key={index}>* {item} *</p>
+        })
+       console.log(fruits);
+       console.log(res);
+
+       //JS function
+       function formatName(user){
+            return user.firstName + ' ' + user.lastName;
+       }
+
+       const user = {
+         firstName: 'Harper',
+         lastName:'Perez',
+       };
+
+       const element = <h1>Hello, {formatName(user)}! </h1>;
+       console.log(element);
+
+
         root.render(
             <StrictMode>
                 <App />
+                element
             </StrictMode>
         );
     </script>
