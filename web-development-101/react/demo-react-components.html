@@ -75,6 +75,52 @@
             document.getElementById('root')
         );
 
+        class App extends React.Component {
+            constructor() {
+                super();
+                //1. add state
+                this.state = {
+                    a: 20
+                };
+                this.change = this.change.bind(this);
+            }
+            render() {
+                return (
+                    //2.use state
+                    <div>
+                        <div>
+                            <button onClick={() => { this.setState({ a: this.state.a + 10 }) }}>
+                                click me </button>
+                            <button onClick={this.change} > click me </button>
+                            {this.state.a}
+                        </div>
+                    </div>
+                )
+            }
+            change() {
+                this.setState({ a: 999 })
+            }
+        }
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root')
+        );
+
+        //Handling events: with JSX you pass a function as the event handle, rather than a string
+        //HTML
+        // <button onclick="clickFn()">
+        //     Click me </button>
+
+        // //React
+        // <button onClick={clickFn}>
+        //     Click me </button>
+
+        //How to write event handling function in React
+        //method 1
+     //   <button onClick={this.handleClick.bind(this,10)}>click me</button>
+
+        //method 2
+         <button onClick={()=>{this.handleClick()}}>click me </button>
 
     </script>
 </body>
